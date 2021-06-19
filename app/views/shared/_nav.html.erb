@@ -1,0 +1,7 @@
+<nav class="nav__container">
+  <%= link_to('Back', back_path) unless defined?(back_path).nil? %>
+  <b><%= title %></b>
+  <% if user_signed_in? %>
+    <%= link_to('Log out', destroy_user_session_path, method: "delete") if (current_page?('/dealership') || current_page?('/')) %>
+  <% end %>
+</nav>

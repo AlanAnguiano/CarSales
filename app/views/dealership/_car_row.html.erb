@@ -1,0 +1,9 @@
+<div class="dealership__row">
+  <div class="dealership__cell"><%= car.brand %></div>
+  <div class="dealership__cell"><%= car.name %></div>
+  <div class="dealership__cell"><%= car.model %></div>
+  <div class="dealership__cell"><%= car.year %></div>
+  <div class="dealership__cell">$ <%= formatting_price(car.price) %></div>
+  <div class="dealership__cell"><%= car.state %></div>
+  <%= link_to('Delete', dealership_car_path(@dealership.id, car.id), method: 'delete') if current_user.admin? %>
+</div>

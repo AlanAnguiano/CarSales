@@ -1,14 +1,20 @@
-Add new car
+<%= render partial: 'shared/nav', locals: { title: 'Add New Car', 
+                                            back_path: dealership_path(params[:dealership_id]) } %>
 
-<%= form_for(@car, url: { action: 'create' }) do |f| %>
-  <%= f.text_field :brand, placeholder: 'brand', required: true %><br>
-  <%= f.text_field :name, placeholder: 'name', required: true %><br>
-  <%= f.text_field :model, placeholder: 'model', required: true %><br>
-  <%= f.text_field :year, placeholder: 'year', required: true %><br>
-  <%= f.number_field :price, placeholder: 'Price', required: true %><br>
-  <%= f.radio_button :state, "used", required: true %>
-  <%= f.label :state, "used"%>
-  <%= f.radio_button :state, "new", required: true %>
-  <%= f.label :state, "new"%><br>
-  <%= f.submit 'Add' %>
-<% end %>
+<div class="dealership__card-form">
+  <div class="dealership__card-title"><h4>Car Details</h4></div> 
+  <%= form_for(@car, url: { action: 'create' }) do |f| %>
+    <%= f.text_field :brand, placeholder: 'brand', required: true %>
+    <%= f.text_field :name, placeholder: 'name', required: true %>
+    <%= f.text_field :model, placeholder: 'model', required: true %>
+    <%= f.text_field :year, placeholder: 'year', required: true %>
+    <%= f.number_field :price, placeholder: 'Price', required: true %>
+    <div class="dealership__form-radios-container">
+      <%= f.label :state, "used"%>
+      <%= f.radio_button :state, "used", required: true %>
+      <%= f.label :state, "new"%>
+      <%= f.radio_button :state, "new", required: true %>
+    </div>
+    <%= f.submit 'Add', class: 'submit-btn-purple' %>
+  <% end %>
+</div>
