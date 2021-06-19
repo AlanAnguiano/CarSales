@@ -1,0 +1,74 @@
+.dealership__wrapper {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 40px;
+
+  .dealership__table {
+    display: table;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.50);
+    width: 100%;
+
+    .dealership__row {
+      display: table-row;
+      width: 100%;
+
+      &:nth-of-type(odd) {
+        background-color: #eee;
+      }
+
+      &.header {
+        background-color: #7234c4;
+        color: #fff;
+      }
+
+      .dealership__cell {
+        display: table-cell;
+        padding: 5px;
+
+        &.hidden {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.dealership__card-form {
+  width: 250px;
+  padding: 5px;
+  margin: 45px auto;
+  box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.50);
+
+  .dealership__card-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgba(115, 52, 197, 0.75);
+  }
+
+  form input {
+    width: 100%;
+    padding: 6px 2px;
+    margin-bottom: 10px;
+  }
+
+  .dealership__form-radios-container {
+    display: flex;
+    justify-content: center;
+    input {
+      width: 40px;
+    }
+  }
+}
+
+.submit-btn-purple {
+  background: transparent;
+  border: 1px solid #7234c4;
+  border-radius: 3px;
+
+  &:hover {
+    color: #fff;
+    cursor: pointer;
+    background: #7234c4;
+  }
+}

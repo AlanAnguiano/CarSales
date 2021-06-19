@@ -1,5 +1,12 @@
-create new dealership
+<%= render partial: 'shared/nav', 
+           locals: { title: 'Create New Dealership',
+                     back_path: root_path} %>
 
-<%= form_for(@dealership, url: { action: 'create' }) do |f| %>
-  <%= f.text_field :name %>
-<% end %>
+<div class="dealership__card-form">
+    <div class="dealership__card-title"><h4>Dealership Details</h4></div> 
+    <%= form_for(@dealership, url: { action: 'create' }) do |f| %>
+      <%= f.text_field :name, placeholder: 'Dealearship name', required: true %>
+      <%= f.submit 'Add', class: 'submit-btn-purple' %>
+    <% end %>
+  </div>
+</div>

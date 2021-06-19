@@ -1,21 +1,26 @@
-<%= @dealership.name %><br>
-<br>
-Cars in this dealership <br>
-<% if @dealership.cars.empty? %>
-  <span><b>There are no cars available</b></span>
-<% else %>
- <!-- TODO: create a table to show details beautiful -->
-  <% @dealership.cars.each do |car| %>
-    <%= car.brand %>
-    <%= car.name  %>
-    <%= car.model %>
-    <%= car.year  %>
-    <!-- move this string float to helper -->
-    <%= "%.2f" % car.price  %>
-    <%= car.state  %>
-    <%= link_to 'Delete', dealership_car_path(@dealership.id, car.id), method: 'delete' %>
-    <br>
+<div class="dealership__container">
+  <%= render partial: 'shared/nav', locals: {title: @dealership.name, back_path: root_path } %>
+  <% if @dealership.cars.empty? %>
+    <h3><b>There are no cars available</b></h3>
+  <% else %>
+    <div class="dealership__wrapper">
+      <div class="dealership__table">
+        <div class="dealership__row header">
+          <div class="dealership__cell">Brand</div>
+          <div class="dealership__cell">Name</div>
+          <div class="dealership__cell">Model</div>
+          <div class="dealership__cell">Year</div>
+          <div class="dealership__cell">Price</div>
+          <div class="dealership__cell">State</div>
+          <div class="dealership__cell <%= 'hidden' unless current_user.admin? %>">Options</div>
+        </div>
+        <% @dealership.cars.each do |car| %>
+          <%= render partial: 'car_row', locals: { car: car } %>
+        <% end %>
+      </div>
+    </div>
   <% end %> 
-<% end %>
-<br>
-<%= link_to('Add car', new_dealership_car_path(dealership_id: params[:id])) if current_user.admin? %>
+  <div class="purple__btn">
+    <%= link_to('Add car', new_dealership_car_path(dealership_id: params[:id])) if current_user.admin? %>
+  </div>
+</div>
