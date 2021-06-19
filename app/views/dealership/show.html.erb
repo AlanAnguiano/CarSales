@@ -1,0 +1,21 @@
+Hiiiii konichiwaaaa <%= @dealership.name %><br>
+<br>
+Cars in this dealership <br>
+<% if @dealership.cars.empty? %>
+  <span><b>There are no cars available</b></span>
+<% else %>
+ <!-- TODO: create a table to show details beautiful -->
+  <% @dealership.cars.each do |car| %>
+    <%= car.brand %>
+    <%= car.name  %>
+    <%= car.model %>
+    <%= car.year  %>
+    <!-- move this string float to helper -->
+    <%= "%.2f" % car.price  %>
+    <%= car.state  %>
+    <%= link_to 'Delete', dealership_car_path(@dealership.id, car.id), method: 'delete' %>
+    <br>
+  <% end %> 
+<% end %>
+<br>
+<%= link_to('Add car', new_dealership_car_path(dealership_id: params[:id])) if current_user.admin? %>

@@ -1,0 +1,19 @@
+<h1>Dealership</h1>
+<!-- REMOVE IF AND LOOPS TO AN HELPER-->
+
+<!-- Allow default admin to create more admins -->
+
+<% if user_signed_in? %>
+  <%= link_to 'Log out', destroy_user_session_path, method: "delete" %>
+<% end %>
+<div>
+  <% if @dealerships.empty? %>
+    <span>There's no dealerships</span>
+  <% else %>
+    <% @dealerships.each do |dealer| %>
+      <%= dealer.name %>
+      <%= link_to 'View dealership', dealership_path(dealer.id)%> <br>
+    <% end %>
+  <% end %>
+  <%= link_to('Create Dealership', new_dealership_path) if current_user.admin? %>
+</div>
