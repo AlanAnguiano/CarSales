@@ -1,0 +1,14 @@
+add new car
+
+<%= form_for(@car, url: { action: 'create' }) do |f| %>
+  <%= f.text_field :brand, placeholder: 'brand', required: true %><br>
+  <%= f.text_field :name, placeholder: 'name', required: true %><br>
+  <%= f.text_field :model, placeholder: 'model', required: true %><br>
+  <%= f.text_field :year, placeholder: 'year', required: true %><br>
+  <%= f.number_field :price, placeholder: 'Price', required: true %><br>
+  <%= f.radio_button :state, "used", required: true %>
+  <%= f.label :state, "used"%>
+  <%= f.radio_button :state, "new", required: true %>
+  <%= f.label :state, "new"%><br>
+  <%= f.submit 'Add' %>
+<% end %>
