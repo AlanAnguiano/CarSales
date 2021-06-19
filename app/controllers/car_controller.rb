@@ -13,7 +13,7 @@ class CarController < ApplicationController
                 model: car_params[:model],
                 brand: car_params[:brand],
                 year: car_params[:year],
-                price: car_params[:price].to_f.truncate(2),
+                price: car_params[:price].to_f,
                 state: car_params[:state])
     redirect_to dealership_path(dealership_id)
   end
