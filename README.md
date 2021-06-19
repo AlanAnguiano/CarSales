@@ -1,24 +1,39 @@
-# README
+# Cars inventory excercise
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Pre-requisites
+```
+  Ruby 3.0.0
+  Rails 6.1.3
+  Yarn 1.22.5
+  Node 16.0.0
+```
 
-Things you may want to cover:
+## Setup
+ - Clone the project
+ - Access the repo folder
+ - Run `bundle install`
+ - Run `yarn install`
+ - Run `rails db:setup`
+ - A predefined admin user is created with the following data
+    ```
+    Email: admin@mail.com
+    password: admin123
+    ```
 
-* Ruby version
+## Running test
+to run all the tests:
+```
+bundle exec rspec spec/
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+After running the test you can see the coverage by typing this:
+```
+open coverage/index.html
+```
+## References
+Gems used in this project
+- [devise](https://github.com/heartcombo/devise)
+- [whenever](https://github.com/javan/whenever)
+- [Rspec-rails](https://github.com/rspec/rspec-rails)
+- [Factory bot](https://github.com/thoughtbot/factory_bot)
+- [Simplecov](https://github.com/simplecov-ruby/simplecov)
